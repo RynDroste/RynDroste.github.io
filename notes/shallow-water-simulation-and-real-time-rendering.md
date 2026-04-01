@@ -162,19 +162,19 @@ $$h^{t+3\Delta t/2} = h^{t+\Delta t/2} + \Delta t \nabla \cdot (\mathbf{q}^{t+\D
 
 # Shader
 
-## 1. Height-field rendering  
+## 1. Height-field rendering
 
-输入是格点角上的 $(i,j)$。用 texelFetch 从 $uH$、$uB$ 纹理里取相邻格子的水深和地形，在角上平均得到水面高度 $y$ 和平均水深 $vDepth$，再乘 $uMVP$ 得到 $gl_Position$，并把世界坐标、深度传给片元阶段.  
+Input lives at grid corners $(i,j)$. `texelFetch` samples $uH$ and $uB$ for neighboring cells (water depth and bed); values are averaged at the corner to get surface height $y$ and mean depth $vDepth$, then multiplied by $uMVP$ for `gl_Position`, while world position and depth are passed to the fragment stage.
 
-用 $dFdx/dFdy$ 对世界坐标求屏幕空间导数，叉乘得到法线；按 $vDepth$ 在深蓝/浅青之间插值，再乘方向光 $uLightDir$ 做简单 Lambert，输出带 $uAlpha$ 的颜色。
+$dFdx$ / $dFdy$ of world position give screen-space derivatives; their cross product yields the normal. Base color is interpolated between deep blue and light cyan using $vDepth$, then modulated by directional light $uLightDir$ with simple Lambert shading; output includes $uAlpha$.
 
 ## 2. Lighting
 
-光源：$uLightDir$ 表示平行光方向  
+**Light:** $uLightDir$ is the directional (parallel) light direction.
 
-漫反射：$ndl = max(dot(N, L), 0.0)$，即 Lambert：只保留法线与光方向夹角的余弦，背面为 0  
+**Diffuse:** $ndl = \max(\mathbf{N} \cdot \mathbf{L}, 0.0)$ — Lambert: only the cosine between normal and light is kept; back-facing fragments get 0.
 
-最终颜色：$baseColor * (ambient + weight * ndl)$，即常数环境项 + 加权的 $N·L$，系数在不同材质里略有不同。
+**Final color:** `baseColor * (ambient + weight * ndl)` — constant ambient plus weighted $N \cdot L$; weights differ slightly per material.
 
 | Status | Milestone | Goal |
 | :--- | :--- | :--- |
