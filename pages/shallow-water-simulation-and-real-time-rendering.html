@@ -32,10 +32,11 @@
     </div>
   </nav>
 
-  <main id="main">
+  <main id="main" class="work-wiki">
     <a class="page-back" href="works.html" data-i18n="backWorks">← All works</a>
 
-    <article>
+    <article class="work-wiki-article">
+      <div class="work-wiki-body">
       <div class="work-hero-thumb">
         <div class="project-thumb placeholder-c" role="img" data-i18n-attr="aria-label:projThumb3Aria"></div>
       </div>
@@ -57,16 +58,12 @@
         </p>
       </div>
 
-      <nav class="wiki-toc about-card" aria-labelledby="wiki-toc-title">
-        <h2 id="wiki-toc-title" class="wiki-toc-title" data-i18n="wikiTocTitle">Contents</h2>
-        <ul>
-          <li><a href="#note" data-i18n="linkNote">Note</a></li>
-          <li><a href="#source" data-i18n="linkSource">Source</a></li>
-        </ul>
-      </nav>
-
-      <section id="note" class="work-wiki-section about-card" aria-labelledby="sec-note">
-        <h2 id="sec-note" class="section-title" data-i18n="linkNote">Note</h2>
+      <section
+        id="note"
+        class="work-wiki-section about-card"
+        data-i18n-attr="aria-label:wikiArticleSectionAria"
+        aria-label="Article"
+      >
         <p class="work-note-status" data-i18n="noteLoading">Loading notes…</p>
         <div
           class="work-note-prose"
@@ -81,6 +78,44 @@
           <a href="https://github.com/RynDroste/Bachelor_Project" target="_blank" rel="noopener noreferrer" class="wiki-repo-link" data-i18n="wikiOpenRepo">Open repository</a>
         </p>
       </section>
+
+      <section id="reference" class="work-wiki-section about-card" aria-labelledby="sec-reference">
+        <h2 id="sec-reference" class="section-title" data-i18n="linkReference">References</h2>
+        <ol class="wiki-reference-list wiki-reference-list--ieee">
+          <li id="ref-tessendorf-2014">
+            J. Tessendorf, “eWave: Using an Exponential Solver on the iWave Problem,” Clemson Univ., Tech. Note, Mar. 2014. [Online]. Available:
+            <a href="https://jtessen.people.clemson.edu/reports/papers_files/ewavealgorithm.pdf" target="_blank" rel="noopener noreferrer">https://jtessen.people.clemson.edu/reports/papers_files/ewavealgorithm.pdf</a>
+          </li>
+          <li id="ref-chentanez-2010">
+            N. Chentanez and M. Müller, “Real-time simulation of large bodies of water with small scale details,” in Proc. ACM SIGGRAPH/Eurographics Symp. Comput. Anim. (SCA), 2010, pp. 197-206, doi: 10.2312/SCA/SCA10/197-206. [Online]. Available:
+            <a href="https://matthias-research.github.io/pages/publications/hfFluid.pdf" target="_blank" rel="noopener noreferrer">https://matthias-research.github.io/pages/publications/hfFluid.pdf</a>
+          </li>
+          <li id="ref-jeschke-2015">
+            S. Jeschke and C. Wojtan, “Water wave animation via wavefront parameter interpolation,” ACM Trans. Graph., vol. 34, no. 3, Art. 27, Apr. 2015, doi: 10.1145/2714572. [Online]. Available:
+            <a href="https://doi.org/10.1145/2714572" target="_blank" rel="noopener noreferrer">https://doi.org/10.1145/2714572</a>
+          </li>
+          <li id="ref-tessendorf-2017-gilligan">
+            J. Tessendorf, “Gilligan: A prototype framework for simulating and rendering maritime environments,” Clemson Univ., Tech. Note, Feb. 2017. [Online]. Available:
+            <a href="https://people.computing.clemson.edu/~jtessen/gilligan/html/gilligandoc.pdf" target="_blank" rel="noopener noreferrer">https://people.computing.clemson.edu/~jtessen/gilligan/html/gilligandoc.pdf</a>
+          </li>
+        </ol>
+      </section>
+      </div>
+
+      <aside
+        class="work-wiki-toc-aside"
+        data-i18n-attr="aria-label:wikiTocAsideAria"
+        aria-label="On this page"
+      >
+        <nav class="wiki-toc wiki-toc--sidebar about-card" aria-labelledby="wiki-toc-title">
+          <h2 id="wiki-toc-title" class="wiki-toc-title" data-i18n="wikiTocTitle">Contents</h2>
+          <ul data-wiki-toc-list></ul>
+          <ul class="wiki-toc-static">
+            <li><a href="#source" data-i18n="linkSource">Source</a></li>
+            <li><a href="#reference" data-i18n="linkReference">References</a></li>
+          </ul>
+        </nav>
+      </aside>
     </article>
   </main>
 

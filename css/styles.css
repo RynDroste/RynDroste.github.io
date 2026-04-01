@@ -848,6 +848,52 @@ footer a:hover {
   padding-bottom: 0;
 }
 
+/* Work detail: anchor scroll clears sticky top nav; sidebar TOC sticks while scrolling */
+html:has(main.work-wiki) {
+  scroll-padding-top: 6rem;
+}
+
+.work-wiki-article {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 15.5rem);
+  gap: 1.75rem 2rem;
+  align-items: start;
+}
+
+.work-wiki-body {
+  min-width: 0;
+}
+
+.work-wiki-toc-aside {
+  position: sticky;
+  top: 5.75rem;
+  align-self: start;
+  max-height: calc(100vh - 6.5rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.wiki-toc--sidebar {
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .work-wiki-article {
+    grid-template-columns: 1fr;
+  }
+
+  .work-wiki-toc-aside {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    order: -1;
+  }
+
+  .wiki-toc--sidebar {
+    margin-bottom: 0;
+  }
+}
+
 /* Wiki-style TOC + in-page sections (work detail pages) */
 .wiki-toc {
   margin: 1.5rem 0;
@@ -869,8 +915,8 @@ footer a:hover {
   padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.45rem;
+  align-items: stretch;
+  gap: 0.35rem;
 }
 
 .wiki-toc li {
@@ -890,13 +936,98 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.wiki-toc-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.15rem;
+  width: 100%;
+}
+
+.wiki-toc-row a {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.wiki-toc-toggle {
+  flex-shrink: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.12rem;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s, color 0.12s;
+}
+
+.wiki-toc-toggle:hover {
+  color: var(--accent);
+  background: rgba(94, 225, 213, 0.1);
+}
+
+.wiki-toc-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.wiki-toc-toggle-spacer {
+  flex-shrink: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.12rem;
+}
+
+.wiki-toc-chevron {
+  display: block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -0.2rem;
+  transition: transform 0.15s ease;
+}
+
+.wiki-toc-branch--collapsed .wiki-toc-chevron {
+  transform: rotate(-45deg);
+  margin-top: 0;
+  margin-left: -0.05rem;
+}
+
+.wiki-toc-nested {
+  list-style: none;
+  margin: 0.25rem 0 0 0;
+  padding: 0 0 0 0.55rem;
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.wiki-toc-nested[hidden] {
+  display: none !important;
+}
+
+.wiki-toc .wiki-toc-static {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+}
+
 .work-wiki-section {
   margin-bottom: 1.25rem;
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 6rem;
 }
 
 .work-wiki-section .section-title {
   margin-bottom: 0.75rem;
+  scroll-margin-top: 6rem;
 }
 
 .work-wiki-section p {
@@ -908,6 +1039,41 @@ footer a:hover {
 
 .work-wiki-section p:last-child {
   margin-bottom: 0;
+}
+
+.wiki-reference-list {
+  margin: 0;
+  padding-left: 1.35rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.wiki-reference-list--ieee {
+  list-style: decimal;
+  list-style-position: outside;
+  padding-left: 1.65rem;
+}
+
+.wiki-reference-list--ieee li[id] {
+  scroll-margin-top: 6rem;
+}
+
+.wiki-reference-list li {
+  margin-bottom: 0.5rem;
+}
+
+.wiki-reference-list li:last-child {
+  margin-bottom: 0;
+}
+
+.wiki-reference-list a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.wiki-reference-list a:hover {
+  text-decoration: underline;
 }
 
 .work-note-status {
@@ -925,6 +1091,19 @@ footer a:hover {
   color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.7;
+  padding-left: 1.15rem;
+  margin-left: 0.35rem;
+  border-left: 3px solid rgba(94, 225, 213, 0.22);
+}
+
+html[lang="zh-CN"] .work-note-prose > p {
+  text-indent: 2em;
+}
+
+html[lang="zh-CN"] .work-note-prose > h1 + p,
+html[lang="zh-CN"] .work-note-prose > h2 + p,
+html[lang="zh-CN"] .work-note-prose > h3 + p {
+  text-indent: 0;
 }
 
 .work-note-prose > *:first-child {
@@ -944,6 +1123,7 @@ footer a:hover {
   letter-spacing: -0.02em;
   margin: 1.25rem 0 0.5rem;
   line-height: 1.35;
+  scroll-margin-top: 6rem;
 }
 
 .work-note-prose h1 {
@@ -965,6 +1145,13 @@ footer a:hover {
 .work-note-prose ul,
 .work-note-prose ol {
   margin: 0 0 0.75rem;
+  padding-left: 1.85rem;
+}
+
+.work-note-prose li > ul,
+.work-note-prose li > ol {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
   padding-left: 1.35rem;
 }
 
@@ -1024,6 +1211,16 @@ footer a:hover {
   border: none;
   border-top: 1px solid var(--border);
   margin: 1.25rem 0;
+}
+
+.work-note-prose .katex {
+  font-size: 1.05em;
+}
+
+.work-note-prose .katex-display {
+  margin: 0.85rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .wiki-repo-link {

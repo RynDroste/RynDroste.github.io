@@ -32,10 +32,11 @@
     </div>
   </nav>
 
-  <main id="main">
+  <main id="main" class="work-wiki">
     <a class="page-back" href="works.html" data-i18n="backWorks">← All works</a>
 
-    <article>
+    <article class="work-wiki-article">
+      <div class="work-wiki-body">
       <div class="work-hero-thumb">
         <div class="project-thumb placeholder-a" role="img" data-i18n-attr="aria-label:projThumb1Aria"></div>
       </div>
@@ -57,16 +58,12 @@
         </p>
       </div>
 
-      <nav class="wiki-toc about-card" aria-labelledby="wiki-toc-title">
-        <h2 id="wiki-toc-title" class="wiki-toc-title" data-i18n="wikiTocTitle">Contents</h2>
-        <ul>
-          <li><a href="#note" data-i18n="linkNote">Note</a></li>
-          <li><a href="#source" data-i18n="linkSource">Source</a></li>
-        </ul>
-      </nav>
-
-      <section id="note" class="work-wiki-section about-card" aria-labelledby="sec-note">
-        <h2 id="sec-note" class="section-title" data-i18n="linkNote">Note</h2>
+      <section
+        id="note"
+        class="work-wiki-section about-card"
+        data-i18n-attr="aria-label:wikiArticleSectionAria"
+        aria-label="Article"
+      >
         <p class="work-note-status" data-i18n="noteLoading">Loading notes…</p>
         <div class="work-note-prose" data-note-md="../notes/usi-cg.md" hidden></div>
       </section>
@@ -77,6 +74,29 @@
           <a href="https://github.com/RynDroste/Computer-Graphics" target="_blank" rel="noopener noreferrer" class="wiki-repo-link" data-i18n="wikiOpenRepo">Open repository</a>
         </p>
       </section>
+
+      <section id="reference" class="work-wiki-section about-card" aria-labelledby="sec-reference">
+        <h2 id="sec-reference" class="section-title" data-i18n="linkReference">References</h2>
+        <ul class="wiki-reference-list">
+          <li data-i18n="referencePlaceholder">Add citations or links in the page HTML when needed.</li>
+        </ul>
+      </section>
+      </div>
+
+      <aside
+        class="work-wiki-toc-aside"
+        data-i18n-attr="aria-label:wikiTocAsideAria"
+        aria-label="On this page"
+      >
+        <nav class="wiki-toc wiki-toc--sidebar about-card" aria-labelledby="wiki-toc-title">
+          <h2 id="wiki-toc-title" class="wiki-toc-title" data-i18n="wikiTocTitle">Contents</h2>
+          <ul data-wiki-toc-list></ul>
+          <ul class="wiki-toc-static">
+            <li><a href="#source" data-i18n="linkSource">Source</a></li>
+            <li><a href="#reference" data-i18n="linkReference">References</a></li>
+          </ul>
+        </nav>
+      </aside>
     </article>
   </main>
 

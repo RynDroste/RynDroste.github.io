@@ -26,7 +26,7 @@
       heroKicker: "Computer Graphics",
       heroTitle: "Experiments in rendering, geometry, and pixels",
       heroLede:
-        "A collection of personal projects on ray tracing, real-time rendering, shaders, and visualization. Each project has its own page with source and notes.",
+        "A collection of personal projects on ray tracing, real-time rendering, shaders, and visualization. Each project page lists an outline of the write-up and links to the source.",
       btnWorks: "View works",
       worksPageTitle: "My works",
       worksPageLede: "Personal projects and experiments.",
@@ -42,13 +42,18 @@
       proj3Desc:
         "Real-time shallow water simulation and visualization; parallel numerical solver on CUDA with OpenGL rendering.",
       linkSource: "Source",
+      linkReference: "References",
+      referencePlaceholder: "Add citations or links in the page HTML when needed.",
       linkNote: "Note",
       wikiTocTitle: "Contents",
+      wikiTocAsideAria: "On this page",
+      wikiTocExpand: "Expand section",
+      wikiTocCollapse: "Collapse section",
       wikiOpenRepo: "Open repository",
       stackTitle: "Stack & Tools",
       aboutSectionTitle: "About",
       aboutP1Html:
-        'This site gathers personal work on <strong>real-time and offline graphics pipelines</strong>, shaders, and procedural content. Longer write-ups live on each project page under Note.',
+        'This site gathers personal work on <strong>real-time and offline graphics pipelines</strong>, shaders, and procedural content. Longer write-ups use an on-page table of contents on each project page.',
       footerHtml:
         '<a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>',
       backHome: "← Home",
@@ -70,7 +75,8 @@
         "Height-field, flux-based shallow water equations with explicit time integration; coupled to a rendering pipeline using height-field textures and mesh displacement.",
       noteLoading: "Loading notes…",
       noteError: "Could not load notes.",
-      noteEmpty: "No notes yet. Edit the Markdown file in the notes folder."
+      noteEmpty: "No notes yet. Edit the Markdown file in the notes folder.",
+      wikiArticleSectionAria: "Article"
     },
     zh: {
       metaDesc: "计算机图形学作品集 — 渲染、着色器与可视化相关个人项目。",
@@ -96,7 +102,7 @@
       heroKicker: "计算机图形学",
       heroTitle: "渲染、几何与像素的实验记录",
       heroLede:
-        "这里整理光线追踪、实时渲染、着色器与可视化相关的个人项目；每个作品有独立页面，内含源码与笔记目录。",
+        "这里整理光线追踪、实时渲染、着色器与可视化相关的个人项目；每个作品页以目录列出正文结构，并附源码链接。",
       btnWorks: "浏览作品",
       worksPageTitle: "精选作品",
       worksPageLede: "个人项目与实验。",
@@ -111,13 +117,18 @@
       proj3Title: "浅水模拟与实时渲染 — 学士项目",
       proj3Desc: "基于浅水方程的实时模拟与可视化；数值求解在 CUDA 上并行，OpenGL 负责渲染。",
       linkSource: "源码",
+      linkReference: "参考文献",
+      referencePlaceholder: "需要时可在对应作品页的 HTML 中补充文献或链接。",
       linkNote: "笔记",
       wikiTocTitle: "目录",
+      wikiTocAsideAria: "本页目录",
+      wikiTocExpand: "展开小节",
+      wikiTocCollapse: "收起小节",
       wikiOpenRepo: "打开仓库",
       stackTitle: "技术栈与工具",
       aboutSectionTitle: "关于",
       aboutP1Html:
-        '本站用于整理<strong>实时与离线图形管线</strong>、着色器与程序化内容相关的个人项目；更长的说明写在各作品页的「笔记」小节中。',
+        '本站用于整理<strong>实时与离线图形管线</strong>、着色器与程序化内容相关的个人项目；各作品页以目录展示长文结构，便于跳转阅读。',
       footerHtml:
         '<a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>',
       backHome: "← 首页",
@@ -136,7 +147,8 @@
         "高度场、通量形式的浅水方程与显式时间积分；与渲染管线耦合，通过高度场纹理与网格位移呈现水面。",
       noteLoading: "正在加载笔记…",
       noteError: "无法加载笔记。",
-      noteEmpty: "暂无笔记。请编辑 notes 目录下对应的 Markdown 文件。"
+      noteEmpty: "暂无笔记。请编辑 notes 目录下对应的 Markdown 文件。",
+      wikiArticleSectionAria: "正文"
     }
   };
 
