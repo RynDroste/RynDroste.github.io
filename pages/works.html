@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    data-i18n-meta="worksMetaDesc"
+    content="Selected computer graphics projects — path tracing, real-time rendering, procedural content."
+  />
+  <title>Works · CG Lab</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body data-i18n-title="titleWorks">
+  <a class="skip" href="#main" data-i18n="skipWorks">Skip to works</a>
+
+  <nav aria-label="Primary" data-i18n-attr="aria-label:navAria">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html">CG_LAB</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="works.html" aria-current="page" data-i18n="navWorks">Works</a></li>
+          <li><a href="../index.html#stack" data-i18n="navStack">Stack</a></li>
+          <li><a href="../index.html#about" data-i18n="navAbout">About</a></li>
+          <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+        <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:langGroupAria">
+          <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-set-lang="zh" aria-pressed="false">中文</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <a class="page-back" href="../index.html" data-i18n="backHome">← Home</a>
+    <header class="page-intro">
+      <h1 data-i18n="worksPageTitle">My works</h1>
+      <p data-i18n="worksPageLede">Personal projects and experiments.</p>
+    </header>
+
+    <section aria-labelledby="works-title">
+      <h2 class="section-title visually-hidden" id="works-title" data-i18n="worksTitle">My works</h2>
+      <div class="portfolio">
+        <article class="project">
+          <a class="project-thumb-link" href="usi-cg.html" aria-hidden="true" tabindex="-1">
+            <div class="project-thumb placeholder-a" role="img" data-i18n-attr="aria-label:projThumb1Aria"></div>
+          </a>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">USI</span>
+              <span class="tag">CG</span>
+            </div>
+            <h3><a href="usi-cg.html" data-i18n="proj1Title">USI CG</a></h3>
+            <p data-i18n="proj1Desc">Computer graphics at USI — rendering, shaders, and related labs or projects.</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <a class="project-thumb-link" href="usi-image-video-processing.html" aria-hidden="true" tabindex="-1">
+            <div class="project-thumb placeholder-b" role="img" data-i18n-attr="aria-label:projThumb2Aria"></div>
+          </a>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag purple">USI</span>
+              <span class="tag">IVP</span>
+            </div>
+            <h3><a href="usi-image-video-processing.html" data-i18n="proj2Title">USI Image Video Processing</a></h3>
+            <p data-i18n="proj2Desc">Image and video processing at USI — algorithms, pipelines, and coursework.</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <a class="project-thumb-link" href="shallow-water-simulation-and-real-time-rendering.html" aria-hidden="true" tabindex="-1">
+            <div class="project-thumb placeholder-c" role="img" data-i18n-attr="aria-label:projThumb3Aria"></div>
+          </a>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">CUDA</span>
+              <span class="tag purple">OpenGL</span>
+            </div>
+            <h3><a href="shallow-water-simulation-and-real-time-rendering.html" data-i18n="proj3Title">Shallow Water Simulation and Real-Time Rendering — Bachelor project</a></h3>
+            <p data-i18n="proj3Desc">
+              Real-time shallow water simulation and visualization; parallel numerical solver on CUDA with OpenGL rendering.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n-html="footerHtml">
+      <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
+    </p>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+</body>
+</html>

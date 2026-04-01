@@ -1,19 +1,193 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-
-<title>My Homepage</title>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    data-i18n-meta="metaDesc"
+    content="Computer graphics portfolio and notes — personal projects in rendering, shaders, and visualization."
+  />
+  <title>CG Lab</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
+<body data-i18n-title="siteTitle">
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-<body>
+  <nav aria-label="Primary" data-i18n-attr="aria-label:navAria">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">CG_LAB</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="pages/works.html" data-i18n="navWorks">Works</a></li>
+          <li><a href="#stack" data-i18n="navStack">Stack</a></li>
+          <li><a href="#about" data-i18n="navAbout">About</a></li>
+          <li><a href="https://github.com/RynDroste" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+        <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:langGroupAria">
+          <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-set-lang="zh" aria-pressed="false">中文</button>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-<h1>Hello, World!</h1>
+  <main id="main" class="home-layout">
+    <aside
+      class="github-sidebar"
+      id="github-sidebar"
+      aria-labelledby="github-sidebar-title"
+    >
+      <h2 class="visually-hidden" id="github-sidebar-title" data-i18n="githubSidebarTitle">GitHub profile</h2>
+      <div class="github-card about-card" data-github-card>
+        <a
+          class="github-card-avatar-wrap"
+          href="https://github.com/RynDroste"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-github-avatar-link
+        >
+          <img
+            class="github-card-avatar"
+            src="https://github.com/RynDroste.png"
+            alt=""
+            width="120"
+            height="120"
+            loading="lazy"
+            data-github-avatar
+          />
+        </a>
+        <a
+          class="github-card-name"
+          href="https://github.com/RynDroste"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-github-name-link
+        >
+          <span data-github-name>RynDroste</span>
+        </a>
+        <p class="github-card-login" data-github-login>@RynDroste</p>
+        <p class="github-card-bio" data-github-bio-block>
+          <span class="github-card-bio-text" data-github-bio hidden></span>
+          <span class="github-card-bio-placeholder" data-i18n="githubBioEmpty" hidden>No bio on GitHub yet.</span>
+        </p>
+        <p class="github-card-error visually-hidden" data-i18n="githubLoadError" data-github-error></p>
+        <dl class="github-card-stats">
+          <div>
+            <dt data-i18n="githubPublicRepos">Public repositories</dt>
+            <dd data-github-repos>—</dd>
+          </div>
+        </dl>
+        <a
+          class="btn btn-ghost github-card-cta"
+          href="https://github.com/RynDroste"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n="githubViewProfile"
+        >
+          View on GitHub
+        </a>
+      </div>
 
-<p>This is my first website built using GitHub Pages.</p>
+      <div class="contact-card about-card" aria-labelledby="contact-title">
+        <h3 id="contact-title" class="sidebar-subheading" data-i18n="contactTitle">Contact</h3>
+        <ul class="contact-list">
+          <li>
+            <a
+              class="contact-link contact-link-email"
+              href="mailto:chenxu@usi.ch"
+              data-i18n-attr="aria-label:contactEmailAria"
+            >
+              <svg
+                class="icon-mail"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"
+                />
+              </svg>
+              <span>chenxu@usi.ch</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="contact-link contact-link-x"
+              href="https://x.com/RynDroste"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n-attr="aria-label:contactXAria"
+            >
+              <svg
+                class="icon-x"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+              <span data-i18n="contactXHandle">@RynDroste</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
 
+    <div class="home-main">
+      <header class="hero">
+        <p class="hero-kicker" data-i18n="heroKicker">Computer Graphics</p>
+        <h1 data-i18n="heroTitle">Experiments in rendering, geometry, and pixels</h1>
+        <p data-i18n="heroLede">
+          A collection of personal projects on ray tracing, real-time rendering, shaders, and visualization. Each project has its own page with source and notes.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="pages/works.html" data-i18n="btnWorks">View works</a>
+        </div>
+      </header>
+
+      <section id="stack" aria-labelledby="stack-title">
+        <h2 class="section-title" id="stack-title" data-i18n="stackTitle">Stack &amp; Tools</h2>
+        <div class="skills">
+          <span class="skill">C++ / CMake</span>
+          <span class="skill">OpenGL / WebGL</span>
+          <span class="skill">CUDA</span>
+          <span class="skill">GLSL / WGSL</span>
+          <span class="skill">Blender</span>
+          <span class="skill">Python</span>
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <h2 class="section-title" id="about-title" data-i18n="aboutSectionTitle">About</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <p data-i18n-html="aboutP1Html">
+              This site gathers personal work on <strong>real-time and offline graphics pipelines</strong>, shaders, and procedural content, with shorter articles under Notes.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p data-i18n-html="footerHtml">
+      <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
+    </p>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/github-profile.js"></script>
 </body>
-
 </html>
