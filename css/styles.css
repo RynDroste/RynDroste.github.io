@@ -1014,6 +1014,13 @@ html:has(main.work-wiki) {
   display: none !important;
 }
 
+.wiki-toc-branch.wiki-toc-depth-2 > .wiki-toc-row > a,
+.wiki-toc-branch.wiki-toc-depth-3 > .wiki-toc-row > a,
+.wiki-toc-branch.wiki-toc-depth-4 > .wiki-toc-row > a {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
 .wiki-toc .wiki-toc-static {
   margin-top: 0.6rem;
   padding-top: 0.6rem;
@@ -1221,6 +1228,51 @@ html[lang="zh-CN"] .work-note-prose > h3 + p {
   margin: 0.85rem 0;
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+.work-note-prose h1 {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.note-h1-toggle {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  opacity: 0.7;
+}
+
+.note-h1-toggle:hover {
+  opacity: 1;
+}
+
+.note-h1-chevron {
+  display: block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.2s;
+}
+
+.note-h1-toggle[aria-expanded="true"] .note-h1-chevron {
+  transform: rotate(45deg);
+}
+
+.note-h1-body[hidden] {
+  display: none !important;
 }
 
 .wiki-repo-link {

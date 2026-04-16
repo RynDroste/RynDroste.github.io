@@ -1,5 +1,3 @@
-# USI Image Video Processing — notes
+# Point Operations
 
-Notes for **image and video processing** coursework. Source: `notes/usi-image-video-processing.md`.
-
-- Repo: [Image-Video-Processing](https://github.com/RynDroste/Image-Video-Processing)
+Course-related notes for **USI image and video processing** assignments.

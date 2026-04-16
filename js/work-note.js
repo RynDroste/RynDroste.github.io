@@ -188,8 +188,8 @@
         var toggle = document.createElement("button");
         toggle.type = "button";
         toggle.className = "wiki-toc-toggle";
-        toggle.setAttribute("aria-expanded", "true");
-        toggle.setAttribute("aria-label", wikiTocToggleLabels(true));
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", wikiTocToggleLabels(false));
         var chev = document.createElement("span");
         chev.className = "wiki-toc-chevron";
         chev.setAttribute("aria-hidden", "true");
@@ -222,11 +222,65 @@
       li.appendChild(row);
 
       if (hasChildren && nestedUl) {
+        nestedUl.hidden = true;
+        li.classList.add("wiki-toc-branch--collapsed");
         li.appendChild(nestedUl);
         stack.push({ depth: d, ul: nestedUl });
       }
 
       parentUl.appendChild(li);
+    });
+  }
+
+  function collapseH1Sections(proseEl) {
+    var h1s = Array.prototype.slice.call(proseEl.querySelectorAll("h1"));
+    if (h1s.length === 0) return;
+
+    h1s.forEach(function (h1) {
+      var siblings = [];
+      var node = h1.nextSibling;
+      while (node) {
+        if (node.nodeType === 1 && node.tagName === "H1") break;
+        siblings.push(node);
+        node = node.nextSibling;
+      }
+      if (siblings.length === 0) return;
+
+      var body = document.createElement("div");
+      body.className = "note-h1-body";
+      body.hidden = true;
+      siblings.forEach(function (s) { body.appendChild(s); });
+      h1.parentNode.insertBefore(body, h1.nextSibling);
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "note-h1-toggle";
+      btn.setAttribute("aria-expanded", "false");
+      var chev = document.createElement("span");
+      chev.className = "note-h1-chevron";
+      chev.setAttribute("aria-hidden", "true");
+      btn.appendChild(chev);
+      h1.appendChild(btn);
+
+      function doToggle() {
+        var open = body.hidden;
+        body.hidden = !open;
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      h1.addEventListener("click", doToggle);
+
+      function expandIfNeeded() {
+        var hash = location.hash.slice(1);
+        if (!hash) return;
+        var target = document.getElementById(hash);
+        if (target && (target === h1 || body.contains(target))) {
+          body.hidden = false;
+          btn.setAttribute("aria-expanded", "true");
+        }
+      }
+      window.addEventListener("hashchange", expandIfNeeded);
+      expandIfNeeded();
     });
   }
 
@@ -261,6 +315,7 @@
         if (status) status.hidden = true;
         ensureHeadingIds(el);
         fillWikiTocFromProse(el);
+        collapseH1Sections(el);
       }
 
       clearWikiTocHeadings(el);
