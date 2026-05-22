@@ -38,6 +38,12 @@
     proj3Title: "Shallow Water Simulation and Real-Time Rendering — Bachelor project",
     proj3Desc:
       "Real-time shallow water simulation and visualization; parallel numerical solver on CUDA with OpenGL rendering.",
+    projThumb4Aria: "3D-MLP-SDF project thumbnail",
+    proj4Title: "3D-MLP-SDF",
+    proj4Desc: "HPG — Neural SDF in a Shader. Tiny ReLU MLP fitted to a procedural canyon, exported to GLSL for real-time ray-marching.",
+    titleWork4: "3D-MLP-SDF · CG Lab",
+    work4DetailMetaDesc: "3D-MLP-SDF — neural signed distance field fitted with a tiny MLP and rendered in real-time via ray-marching in GLSL.",
+    work4DetailP1: "Fits a signed distance field to a procedural canyon terrain using a tiny ReLU MLP with 737 parameters, and exports the weights to GLSL for real-time ray-marching in the fragment shader.",
     linkSource: "Source",
     linkReference: "References",
     referencePlaceholder: "Add citations or links in the page HTML when needed.",

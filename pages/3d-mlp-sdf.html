@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    data-i18n-meta="work1DetailMetaDesc"
-    content="USI CG — computer graphics coursework: rendering, shading, and visualization."
+    data-i18n-meta="work4DetailMetaDesc"
+    content="3D-MLP-SDF — neural signed distance field fitted with a tiny MLP and rendered in real-time via ray-marching in GLSL."
   />
-  <title>USI CG · CG Lab</title>
+  <title>3D-MLP-SDF · CG Lab</title>
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
-<body data-i18n-title="titleWork1">
+<body data-i18n-title="titleWork4">
   <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
   <nav aria-label="Primary" data-i18n-attr="aria-label:navAria">
@@ -34,25 +34,25 @@
     <article class="work-wiki-article">
       <div class="work-wiki-body">
       <div class="work-hero-thumb">
-        <div class="project-thumb" role="img" data-i18n-attr="aria-label:projThumb1Aria">
-          <img src="../CG Title.png" alt="CG Title" style="width:100%;height:100%;object-fit:cover;">
+        <div class="project-thumb" role="img" data-i18n-attr="aria-label:projThumb4Aria">
+          <img src="../GI.png" alt="3D-MLP-SDF" style="width:100%;height:100%;object-fit:cover;">
         </div>
       </div>
       <header class="page-intro work-page-head">
         <div class="project-tags">
-          <span class="tag">CG</span>
-          <span class="tag">C++</span>
+          <span class="tag">HPG</span>
+          <span class="tag purple">GLSL</span>
         </div>
-        <h1 data-i18n="proj1Title">USI CG</h1>
-        <p class="work-lede" data-i18n="proj1Desc">
-          Computer graphics at USI — rendering, shaders, and related labs or projects.
+        <h1 data-i18n="proj4Title">3D-MLP-SDF</h1>
+        <p class="work-lede" data-i18n="proj4Desc">
+          HPG — Neural SDF in a Shader. Tiny ReLU MLP fitted to a procedural canyon, exported to GLSL for real-time ray-marching.
         </p>
       </header>
 
       <div class="work-detail-body about-card">
         <h2 class="section-title" data-i18n="workDetailSection">Project details</h2>
-        <p data-i18n="work1DetailP1">
-          This is the work of the USI CG contents.
+        <p data-i18n="work4DetailP1">
+          Fits a signed distance field to a procedural canyon terrain using a tiny ReLU MLP with 737 parameters, and exports the weights to GLSL for real-time ray-marching in the fragment shader.
         </p>
       </div>
 
@@ -63,21 +63,19 @@
         aria-label="Article"
       >
         <p class="work-note-status" data-i18n="noteLoading">Loading notes…</p>
-        <div class="work-note-prose" data-note-md="../notes/usi-cg.md" hidden></div>
+        <div class="work-note-prose" data-note-md="../notes/3d-mlp-sdf.md" hidden></div>
       </section>
 
       <section id="source" class="work-wiki-section about-card" aria-labelledby="sec-source">
         <h2 id="sec-source" class="section-title" data-i18n="linkSource">Source</h2>
         <p>
-          <a href="https://github.com/RynDroste/Computer-Graphics" target="_blank" rel="noopener noreferrer" class="wiki-repo-link" data-i18n="wikiOpenRepo">Open repository</a>
+          <a href="https://github.com/RynDroste/3D-MLP-SDF" target="_blank" rel="noopener noreferrer" class="wiki-repo-link" data-i18n="wikiOpenRepo">Open repository</a>
         </p>
       </section>
 
       <section id="reference" class="work-wiki-section about-card" aria-labelledby="sec-reference">
         <h2 id="sec-reference" class="section-title" data-i18n="linkReference">References</h2>
         <ul class="wiki-reference-list">
-          <li><a href="https://www.pdf.inf.usi.ch/rendering_competition/2025/" target="_blank" rel="noopener noreferrer">https://www.pdf.inf.usi.ch/rendering_competition/2025/</a></li>
-          <li><a href="https://pbr-book.org/3ed-2018/Primitives_and_Intersection_Acceleration#" target="_blank" rel="noopener noreferrer">https://pbr-book.org/3ed-2018/Primitives_and_Intersection_Acceleration#</a></li>
         </ul>
       </section>
       </div>

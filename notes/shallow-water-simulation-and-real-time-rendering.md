@@ -1,6 +1,58 @@
 # Solver pipeline
 
-![Solver pipeline (overview)](../media/pipeline.png)
+![Solver pipeline (overview)](../Solver_Pipeline.png)
+
+## Features
+
+- **Height-field, flux-based SWE**
+  - Explicit time integration for water depth and momentum
+  - Flux form on a staggered grid to support mass conservation and boundary treatment
+
+- **Coupled pipeline**
+  - Stages such as wave decomposition, shallow-water step, **Airy linear waves**, advection, and recombination can be composed in the pipeline
+
+- **Rendering**
+  - Height-field textures, mesh displacement, and simple shading
+
+## Equations and Discretization
+
+### Governing equations
+
+The SWE consists of two equations.
+
+The **continuity equation** describes the relationship between changes in water depth and the inflow/outflow of water:
+
+$$\frac{\partial h}{\partial t} + \frac{\partial (hu)}{\partial x} + \frac{\partial (hv)}{\partial y} = 0$$
+
+The **momentum equation** describes how forces acting on a body of water change the velocity of the water flow.
+
+In the $x$ direction:
+
+$$\frac{\partial (hu)}{\partial t} + \frac{\partial}{\partial x}\!\left(hu^2 + \tfrac{1}{2}gh^2\right) + \frac{\partial (huv)}{\partial y} = -gh\frac{\partial z_b}{\partial x}$$
+
+In the $y$ direction:
+
+$$\frac{\partial (hv)}{\partial t} + \frac{\partial (huv)}{\partial x} + \frac{\partial}{\partial y}\!\left(hv^2 + \tfrac{1}{2}gh^2\right) = -gh\frac{\partial z_b}{\partial y}$$
+
+In computer graphics, when complex fluid dynamics are stripped down to the core mechanisms most important for visual representation, the simplified form is:
+
+$$\frac{\partial h}{\partial t} + \nabla \cdot (h\mathbf{v}) = 0 \qquad \frac{\partial \mathbf{v}}{\partial t} = -g \nabla \eta$$
+
+### Height flux update — MAC grid
+
+The Marker-and-Cell (MAC) grid is a staggered grid widely used in graphical fluid simulation. $h$ lives at cell centers; $u$ and $v$ live on the corresponding faces.
+
+At cell center $(i,j)$:
+
+$$\frac{h_{i,j}^{n+1} - h_{i,j}^n}{\Delta t} + \frac{(hu)_{i+\frac{1}{2},j} - (hu)_{i-\frac{1}{2},j}}{\Delta x} + \frac{(hv)_{i,j+\frac{1}{2}} - (hv)_{i,j-\frac{1}{2}}}{\Delta y} = 0$$
+
+Because $u$ and $v$ exist on faces while $h$ exists at the center, the required face value of $h$ is determined by the upwind scheme:
+
+$$h_{i+\frac{1}{2},j} = \begin{cases} h_{i,j} & u_{i+\frac{1}{2},j} \ge 0 \\ h_{i+1,j} & u_{i+\frac{1}{2},j} < 0 \end{cases}$$
+
+For the momentum equation, the cross-component velocity is recovered by bilinear interpolation from its four neighbours:
+
+$$\bar{v}_{i+\frac{1}{2},j} = \frac{1}{4}\!\left(v_{i,j+\frac{1}{2}} + v_{i+1,j+\frac{1}{2}} + v_{i,j-\frac{1}{2}} + v_{i+1,j-\frac{1}{2}}\right)$$
 
 ## 1. Wave decomposition
 
